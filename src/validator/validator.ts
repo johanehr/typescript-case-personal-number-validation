@@ -8,7 +8,7 @@ class Validator {
     }
 
     validate(input: string): boolean {
-        return true;
+        return this.rules.map( (rule) => { return rule.check(input); }).every((pass) => { return pass; } )
     }
 }
 

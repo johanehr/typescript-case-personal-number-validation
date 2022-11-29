@@ -2,11 +2,11 @@ type ruleValidationFunction = (input: string) => boolean
 
 class Rule {
     name: string;
-    rule: ruleValidationFunction;
+    check: ruleValidationFunction;
 
-    constructor(name: string, rule: ruleValidationFunction) {
+    constructor(name: string, check: ruleValidationFunction) {
         this.name = name;
-        this.rule = rule;
+        this.check = check;
     }
 }
 
