@@ -1,15 +1,8 @@
 import { Validator } from '../src/validator/validator';
-import { Rule } from '../src/validatorRules/rule';
+import { CustomRule } from '../src/validatorRules/rule';
  
-const testLengthRule = new Rule(
-    "String length has to be 10",
-    (input: string) => { return input.length === 10; }
-);
-
-const testDinosaurRule = new Rule(
-    "String has to be 'Dinosaur'",
-    (input: string) => { return input === 'Dinosaur'; }
-);
+const testLengthRule = new CustomRule().setCheck( (input: string) => { return input.length === 10; });
+const testDinosaurRule = new CustomRule().setCheck( (input: string) => { return input === 'Dinosaur'; });
 
 describe('Testing Validator class', () => {
   
