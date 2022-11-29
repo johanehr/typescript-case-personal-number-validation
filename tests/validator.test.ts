@@ -1,5 +1,6 @@
 import { Validator } from '../src/validator/validator';
 import { CustomRule } from '../src/validatorRules/rule';
+import { SwedishPersonalNumber } from '../src/validatorRules/swedishRules';
  
 const testLengthRule = new CustomRule().setCheck( (input: string) => { return input.length === 10; });
 const testDinosaurRule = new CustomRule().setCheck( (input: string) => { return input === 'Dinosaur'; });
@@ -34,6 +35,16 @@ describe('Testing Validator class', () => {
   test('Validating with both a broken and adhered rule returns false', () => {
     const testValidator = new Validator([testLengthRule, testDinosaurRule]);
     expect(testValidator.validate("rhinoceros")).toBe(false);
+  });
+
+  test('Validating with SwedishPersonalNumber rule returns true for test number', () => {
+    const testValidator = new Validator([SwedishPersonalNumber]);
+    expect(testValidator.validate("19640823-3234")).toBeTruthy;
+  });
+
+  test('Validating with SwedishPersonalNumber rule returns false for corrupted test number', () => {
+    const testValidator = new Validator([SwedishPersonalNumber]);
+    expect(testValidator.validate("19640823-3235")).toBeFalsy;
   });
 
 });

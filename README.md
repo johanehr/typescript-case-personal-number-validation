@@ -44,7 +44,7 @@ This is assumed to be a single non-spaced name, e.g. "Ingvar" and "Kamprad", not
 - The Swedish personal number is all about using the Luhn algorithm to validate the control digit, as well as checking the general format, which can be a regex that is aware of limits (e.g. 12 months).
 - The Swedish name can be a regex for 1 or more characters belonging to A-Z, a-z, or åäö, ÅÄÖ. Note that no requirements are mentioned regarding capitalization.
 - To demonstrate polymorphism and extensibility, each additional rule should extend a rule base class. It makes sense that this requires a validation function to be overridden for each implementation.
-- To be a validation framework, 
+- To be a validation framework,
 ## How to run
 
 This project is built with NodeJS v18 LTS (`nvm use lts/hydrogen`). To get started, install the dependencies using npm.
@@ -71,3 +71,11 @@ For unit testing:
 ```
 npm run test
 ```
+
+## What can be improved
+
+- Regex doesn't account for weird birth dates
+- Rule class abstraction is a bit weird
+- The rule explanation could be provided if which specific validations failed (e.g. yes, this is a phone number, but it isn't Swedish)
+- Swedish name regex could be improved, but assignment wasn't very specific
+- Unit tests could use mocks to only test a limited scope, e.g. the Rules passed to the validator.

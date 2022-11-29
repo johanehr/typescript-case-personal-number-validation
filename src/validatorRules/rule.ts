@@ -1,29 +1,42 @@
-type ruleValidationFunction = (input: string) => boolean
+type RuleValidationFunction = (input: string) => boolean
 
 abstract class Rule {
     abstract explanation: string;
-    abstract check: ruleValidationFunction;
+    abstract check: RuleValidationFunction;
 
-    abstract invokeCheck(input: string): boolean;
-}
-
-class CustomRule implements Rule {
-    explanation: string = 'No explanation provided for this rule.'
-    check: ruleValidationFunction = (input: string) => { return true; };
-    
     invokeCheck(input: string): boolean {
         return this.check(input);
     }
+
+    getExplanation(): string {
+        return this.explanation;
+    }
+}
+
+/**
+ * The CustomRule class is implemented to allow for general one-off rules.
+ */
+class CustomRule implements Rule {
+    explanation = 'No explanation provided for this rule.'
+    check: RuleValidationFunction = (input: string) => { return true; };
 
     setExplanation(expl: string) {
         this.explanation = expl;
         return this;
     }
 
-    setCheck(check: ruleValidationFunction) {
+    setCheck(check: RuleValidationFunction) {
         this.check = check;
         return this;
     }
+
+    invokeCheck(input: string): boolean {
+        return this.check(input);
+    }
+
+    getExplanation(): string {
+        return this.explanation;
+    }
 }
 
-export { Rule, CustomRule };
+export { Rule, CustomRule, RuleValidationFunction };
