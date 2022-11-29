@@ -37,5 +37,13 @@ describe('Testing SwedishRules file', () => {
   test('Example Japanese name fails the validation', () => {
     expect(SwedishName.check("ひろし")).toBeFalsy;
   });
+
+  test('Blank name fails the validation', () => {
+    expect(SwedishName.check("")).toBeFalsy;
+  });
+
+  test('Single letter name passes the validation', () => {
+    expect(SwedishName.check("Ö")).toBeFalsy;
+  });
   
 });
