@@ -6,6 +6,11 @@ const testLengthRule = new Rule(
     (input: string) => { return input.length === 10; }
 );
 
+const testDinosaurRule = new Rule(
+    "String has to be 'Dinosaur'",
+    (input: string) => { return input === 'Dinosaur'; }
+);
+
 describe('Testing Validator class', () => {
   
   test('Constructor with no rules supplied (empty list)', () => {
@@ -31,6 +36,11 @@ describe('Testing Validator class', () => {
   test('Validating with an adhered rule returns true', () => {
     const testValidator = new Validator([testLengthRule]);
     expect(testValidator.validate("just right")).toBe(true);
+  });
+
+  test('Validating with both a broken and adhered rule returns false', () => {
+    const testValidator = new Validator([testLengthRule, testDinosaurRule]);
+    expect(testValidator.validate("rhinoceros")).toBe(false);
   });
 
 });
