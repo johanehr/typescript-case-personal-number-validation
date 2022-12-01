@@ -27,23 +27,23 @@ describe('Testing SwedishRules file', () => {
   });
 
   test('Corrupted example personal number fails the validation', () => {
-    expect(SwedishPersonalNumber.check("19640823-3235")).toBeTruthy;
+    expect(SwedishPersonalNumber.check("19640823-3235")).toBeFalsy();
   });
 
   test('Example Swedish name passes the validation', () => {
-    expect(SwedishName.check("Göran")).toBeTruthy;
+    expect(SwedishName.check("Göran")).toBeTruthy();
   });
 
   test('Example Japanese name fails the validation', () => {
-    expect(SwedishName.check("ひろし")).toBeFalsy;
+    expect(SwedishName.check("ひろし")).toBeFalsy();
   });
 
   test('Blank name fails the validation', () => {
-    expect(SwedishName.check("")).toBeFalsy;
+    expect(SwedishName.check("")).toBeFalsy();
   });
 
   test('Single letter name passes the validation', () => {
-    expect(SwedishName.check("Ö")).toBeFalsy;
+    expect(SwedishName.check("Ö")).toBeFalsy();
   });
   
 });

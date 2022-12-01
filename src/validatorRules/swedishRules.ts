@@ -1,5 +1,5 @@
 import { Rule, RuleValidationFunction } from './rule';
-import { personalNumberRegex, calculateLuhnCheckDigit, swedishNameRegex } from '../helpers';
+import { personalNumberRegex, calculateLuhnCheckDigit, swedishNameRegex } from './helpers';
 
 /**
  * The PersonalNumberRule class is implemented to allow for general one-off rules.

@@ -12,7 +12,7 @@ console.log(`Validating whether ${testInputNegative} matches the rule for "${rul
 
 console.log("\n");
 
-// NOTE: For some reason this fails, despite the unit test passing..?
+// NOTE: It appears that something is off with the regex, despite online regex validators passing it...
 const testInputPersonalNumber = "19640823-3234";
 const validatorSwedish = new Validator([SwedishPersonalNumber]);
 const result = validatorSwedish.validate(testInputPersonalNumber);

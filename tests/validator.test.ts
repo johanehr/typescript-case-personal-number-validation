@@ -39,12 +39,12 @@ describe('Testing Validator class', () => {
 
   test('Validating with SwedishPersonalNumber rule returns true for test number', () => {
     const testValidator = new Validator([SwedishPersonalNumber]);
-    expect(testValidator.validate("19640823-3234")).toBeTruthy;
+    expect(testValidator.validate("19640823-3234")).toBeTruthy();
   });
 
   test('Validating with SwedishPersonalNumber rule returns false for corrupted test number', () => {
     const testValidator = new Validator([SwedishPersonalNumber]);
-    expect(testValidator.validate("19640823-3235")).toBeFalsy;
+    expect(testValidator.validate("19640823-3235")).toBeFalsy();
   });
 
 });

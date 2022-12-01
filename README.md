@@ -74,7 +74,7 @@ npm run test
 
 ## What can be improved
 
-- Regex doesn't account for weird birth dates
+- Regex doesn't account for weird birth dates (e.g. month 13). It appears this regex is failing the tests.
 - Rule class abstraction is a bit weird
 - The rule explanation could be provided if which specific validations failed (e.g. yes, this is a phone number, but it isn't Swedish)
 - Swedish name regex could be improved, but assignment wasn't very specific
